@@ -1,0 +1,191 @@
+ /* biar ga bisa geser kanan kiri */
+        body {
+            margin: 0; /* hapus margin bawaan */
+            padding: 0; /* hapus padding bawaan */
+            overflow-x: hidden; /* biar ga bisa scroll horizontal */
+            box-sizing: border-box; /* biar padding nggak nambah lebar */
+            font-family: 'Poppins', sans-serif; /* font Poppins biar cakep */
+        }
+
+        /* biar semua elemen pake box-sizing border-box */
+        * {
+            box-sizing: border-box; /* biar sizing konsisten */
+        }
+
+        /* biar headernya ganteng pake warna biru dong */
+        .header {
+            background-color: #4a90e2; /* warna biru keren */
+            padding: 40px 20px; /* biar ada space di sekeliling */
+            text-align: center; /* biar tulisannya tengah-tengah */
+            display: flex; /* biar icon sama tulisannya sejajar */
+            flex-direction: column; /* biar vertikal dari atas ke bawah */
+            align-items: center; /* biar semua isinya ke tengah */
+            gap: 10px; /* biar ada jarak antar elemen */
+        }
+
+        /* biar iconnya gede tapi ga kelewat banget */
+        .header-icon {
+            font-size: 48px; /* ukuran icon gede */
+            margin-bottom: 10px; /* jarak dari icon ke judul */
+            color: white; /* iconnya putih biar match sama background */
+        }
+
+        /* judul utama yang gede */
+        .header-title {
+            color: white; /* tulisan putih biar kontras */
+            font-size: 32px; /* ukuran judul gede */
+            margin: 0; /* biar ga ada margin bawaan browser */
+            font-weight: bold; /* biar tebal */
+        }
+
+        /* subjudul yang lebih kecil */
+        .header-subtitle {
+            color: #e0e0e0; /* warna putih agak abu */
+            font-size: 18px; /* ukuran lebih kecil dari judul */
+            margin: 0; /* biar ga ada margin bawaan */
+        }
+
+        /* biar konten utama ada jarak dari header */
+        .main-content {
+            width: 100%; /* lebar full sampai ujung layar */
+            margin: 0; /* biar ke kiri */
+            padding: 40px 20px; /* jarak dari pinggir */
+        }
+
+        /* intro buat team info */
+        .intro {
+            background: white; /* background putih */
+            border: 1px solid #ddd; /* border tipis */
+            border-radius: 8px; /* sudut agak melengkung */
+            padding: 20px; /* space dalam kartu */
+            margin-bottom: 40px; /* jarak ke bawah */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* bayangan halus */
+            display: flex; /* biar icon sama teks sejajar */
+            gap: 20px; /* jarak antar icon sama teks */
+            align-items: center; /* biar icon vertikal di tengah */
+        }
+
+        .intro-icon {
+            font-size: 36px; /* icon ukuran sedang */
+            color: #4a90e2; /* warna biru sama kayak header */
+            flex-shrink: 0; /* biar icon ga nge-shrink */
+        }
+
+        .intro-content {
+            flex: 1; /* biar teks ngisi sisa space */
+        }
+
+        .intro-text {
+            color: #333; /* warna tulisan gelap */
+            font-size: 16px; /* ukuran standar */
+            line-height: 1.6; /* biar nyaman dibaca */
+            margin: 0 0 10px 0; /* jarak antar paragraf */
+        }
+
+        .intro-text:last-child {
+            margin: 0; /* hapus margin di paragraf terakhir */
+        }
+
+        /* container buat grid kartu anggota */
+        .members-grid {
+            display: grid; /* biar bisa bikin grid */
+            grid-template-columns: repeat(2, 1fr); /* 2 kolom sejajar */
+            gap: 20px; /* jarak antar kartu */
+            margin-bottom: 40px; /* jarak ke footer */
+        }
+
+        /* biar kartu terakhir ke tengah halaman */
+        .member-card:last-child {
+            grid-column: 1 / -1; /* biar span semua kolom */
+            justify-self: center; /* biar ke tengah horizontal */
+            max-width: calc(50% - 10px); /* biar lebarnya setengah dikurang gap */
+        }
+
+        /* kartu anggota individu */
+        .member-card {
+            background: white; /* background putih */
+            border: 1px solid #ddd; /* border tipis */
+            border-radius: 8px; /* sudut agak melengkung */
+            padding: 25px; /* space dalam kartu lebih gede */
+            display: flex; /* biar foto sama info sejajar */
+            gap: 20px; /* jarak antar elemen lebih lebar */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* bayangan halus */
+        }
+
+        /* placeholder foto */
+        .member-photo {
+            width: 120px; /* lebar foto lebih gede */
+            height: 120px; /* tinggi foto lebih gede */
+            background: #e0e0e0; /* background abu */
+            border: 1px solid #ccc; /* border tipis */
+            display: flex; /* biar isi ke tengah */
+            align-items: center; /* vertikal ke tengah */
+            justify-content: center; /* horizontal ke tengah */
+            color: #777; /* warna teks abu */
+            font-size: 16px; /* ukuran teks lebih gede */
+            flex-shrink: 0; /* biar ga nge-shrink */
+            border-radius: 8px; /* sudut agak melengkung */
+            overflow: hidden; /* biar gambar ga keluar dari border */
+        }
+
+        /* gambar anggota */
+        .member-photo img {
+            width: 100%; /* biar gambar full width */
+            height: 100%; /* biar gambar full height */
+            object-fit: cover; /* biar gambar nge-cover pas */
+        }
+
+        /* container info anggota */
+        .member-info {
+            flex: 1; /* biar ngisi sisa space */
+            display: flex; /* biar isi bisa diatur */
+            flex-direction: column; /* biar vertikal dari atas ke bawah */
+            text-align: left; /* biar tulisannya rata kiri */
+        }
+
+        /* nama anggota */
+        .member-name {
+            font-size: 18px; /* ukuran nama lebih gede */
+            font-weight: bold; /* tebal */
+            color: #333; /* warna gelap */
+            margin: 0 0 5px 0; /* jarak ke bawah dikit */
+            text-align: left; /* biar rata kiri */
+        }
+
+        /* role/posisi */
+        .member-role {
+            font-size: 15px; /* ukuran lebih gede */
+            color: #666; /* warna agak abu */
+            margin: 0 0 10px 0; /* jarak ke biodata */
+            text-align: left; /* biar rata kiri */
+        }
+
+        /* container biodata */
+        .biodata-list {
+            margin: 0; /* biar ga ada margin */
+            padding: 0; /* biar ga ada padding */
+            text-align: left; /* biar rata kiri */
+        }
+
+        /* biodata list item */
+        .member-biodata {
+            font-size: 13px; /* ukuran lebih gede */
+            color: #555; /* warna agak gelap */
+            margin: 0 0 3px 0; /* jarak antar baris dikit */
+            line-height: 1.5; /* biar nyaman dibaca */
+            text-align: left; /* biar rata kiri */
+        }
+
+        /* footer di paling bawah */
+        .footer {
+            background: #333; /* background gelap */
+            color: white; /* tulisan putih */
+            text-align: center; /* ke tengah */
+            padding: 20px; /* space dalam footer */
+            margin-top: 40px; /* jarak dari konten */
+        }
+
+        .footer-text {
+            margin: 0; /* biar ga ada margin */
+            font-size: 14px; /* ukuran kecil */
+        }

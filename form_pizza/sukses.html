@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesanan Berhasil</title>
+    <!-- taro link Font Awesome buat icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- taro link Google Fonts Poppins biar fontnya cakep -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* style buat halaman sukses */
+        body {
+            font-family: 'Poppins', sans-serif; /* font Poppins biar cakep */
+            background-color: #f5f5f5; /* background abu muda */
+            padding: 40px 20px; /* jarak dari pinggir */
+            margin: 0; /* hapus margin bawaan */
+        }
+
+        /* container utama buat konten */
+        .container {
+            max-width: 600px; /* lebar maksimal */
+            margin: 0 auto; /* biar ke tengah */
+            background: white; /* background putih */
+            padding: 30px; /* space dalam container */
+            border-radius: 8px; /* sudut melengkung */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* bayangan halus */
+        }
+
+        /* header pesanan berhasil */
+        h1 {
+            color: #4a90e2; /* warna biru */
+            text-align: center; /* biar ke tengah */
+            margin-bottom: 30px; /* jarak ke bawah */
+            display: flex; /* biar icon sama teks sejajar */
+            align-items: center; /* vertikal ke tengah */
+            justify-content: center; /* horizontal ke tengah */
+            gap: 15px; /* jarak antar icon sama teks */
+        }
+
+        /* icon di header */
+        h1 i {
+            font-size: 40px; /* ukuran icon gede */
+        }
+
+        /* section buat grouping info */
+        .section {
+            border: 1px solid #ddd; /* border tipis */
+            border-radius: 8px; /* sudut melengkung */
+            padding: 20px; /* space dalam section */
+            margin-bottom: 20px; /* jarak antar section */
+        }
+
+        /* judul section */
+        .section h2 {
+            color: #4a90e2; /* warna biru */
+            font-size: 18px; /* ukuran gede dikit */
+            margin-top: 0; /* hapus margin atas */
+            margin-bottom: 15px; /* jarak ke bawah */
+            padding-bottom: 10px; /* jarak ke border */
+            border-bottom: 2px solid #4a90e2; /* border bawah */
+            display: flex; /* biar icon sama teks sejajar */
+            align-items: center; /* vertikal ke tengah */
+            gap: 10px; /* jarak antar icon sama teks */
+        }
+
+        /* icon di judul section */
+        .section h2 i {
+            font-size: 20px; /* ukuran icon */
+        }
+
+        /* item info individual */
+        .info-item {
+            margin-bottom: 10px; /* jarak antar item */
+            padding: 10px; /* space dalam item */
+            background: #f9f9f9; /* background abu muda */
+            border-radius: 4px; /* sudut agak melengkung */
+            display: flex; /* biar label sama value sejajar */
+            align-items: center; /* vertikal ke tengah */
+            gap: 10px; /* jarak antar elemen */
+        }
+
+        /* label info */
+        .info-label {
+            font-weight: bold; /* tebal */
+            color: #333; /* warna gelap */
+            display: flex; /* biar icon sama teks sejajar */
+            align-items: center; /* vertikal ke tengah */
+            gap: 8px; /* jarak antar icon sama teks */
+            min-width: 180px; /* lebar minimum label */
+        }
+
+        /* icon di label */
+        .info-label i {
+            color: #4a90e2; /* warna biru */
+            font-size: 14px; /* ukuran icon kecil */
+        }
+
+        /* value info */
+        .info-value {
+            color: #555; /* warna agak abu */
+            font-size: 14px; /* ukuran standar */
+        }
+
+        /* tombol kembali */
+        .back-btn {
+            display: inline-block; /* biar inline */
+            background-color: #4a90e2; /* warna biru */
+            color: white; /* tulisan putih */
+            text-decoration: none; /* hapus underline */
+            padding: 12px 30px; /* space dalam tombol */
+            font-size: 16px; /* ukuran standar */
+            font-weight: bold; /* tebal */
+            border-radius: 4px; /* sudut agak melengkung */
+            transition: background-color 0.3s; /* transisi halus */
+            font-family: 'Poppins', sans-serif; /* font konsisten */
+            text-align: center; /* biar ke tengah */
+        }
+
+        /* tombol kembali pas di-hover */
+        .back-btn:hover {
+            background-color: #357abd; /* warna biru lebih gelap */
+        }
+
+        /* tombol kembali pas di-klik */
+        .back-btn:active {
+            background-color: #2a5a8f; /* warna biru paling gelap */
+        }
+
+        /* container tombol */
+        .btn-container {
+            text-align: center; /* biar ke tengah */
+            margin-top: 20px; /* jarak ke atas */
+        }
+    </style>
+</head>
+<body>
+    <!-- container utama -->
+    <div class="container">
+        <!-- header pesanan berhasil pake icon check -->
+        <h1><i class="fas fa-check-circle"></i> Pesanan Berhasil!</h1>
+
+        <!-- section info customer -->
+        <div class="section">
+            <!-- judul section pake icon user -->
+            <h2><i class="fas fa-user"></i> Your Information</h2>
+            <!-- item name -->
+            <div class="info-item">
+                <span class="info-label"><i class="fas fa-id-card"></i> Name:</span>
+                <span class="info-value" id="display-customername">-</span>
+            </div>
+            <!-- item address -->
+            <div class="info-item">
+                <span class="info-label"><i class="fas fa-map-marker-alt"></i> Address:</span>
+                <span class="info-value" id="display-address">-</span>
+            </div>
+            <!-- item phone -->
+            <div class="info-item">
+                <span class="info-label"><i class="fas fa-phone"></i> Phone:</span>
+                <span class="info-value" id="display-telephone">-</span>
+            </div>
+            <!-- item email -->
+            <div class="info-item">
+                <span class="info-label"><i class="fas fa-envelope"></i> Email:</span>
+                <span class="info-value" id="display-email">-</span>
+            </div>
+            <!-- item delivery instruction -->
+            <div class="info-item">
+                <span class="info-label"><i class="fas fa-truck"></i> Delivery Instruction:</span>
+                <span class="info-value" id="display-instruction">-</span>
+            </div>
+        </div>
+
+        <!-- section info pizza -->
+        <div class="section">
+            <!-- judul section pake icon pizza -->
+            <h2><i class="fas fa-pizza-slice"></i> Your Pizza</h2>
+            <!-- item crust -->
+            <div class="info-item">
+                <span class="info-label"><i class="fas fa-bread-slice"></i> Crust:</span>
+                <span class="info-value" id="display-crust">-</span>
+            </div>
+            <!-- item toppings -->
+            <div class="info-item">
+                <span class="info-label"><i class="fas fa-check"></i> Toppings:</span>
+                <span class="info-value" id="display-toppings">-</span>
+            </div>
+            <!-- item quantity -->
+            <div class="info-item">
+                <span class="info-label"><i class="fas fa-hashtag"></i> Quantity:</span>
+                <span class="info-value" id="display-pizzas">-</span>
+            </div>
+        </div>
+
+        <!-- container tombol kembali -->
+        <div class="btn-container">
+            <a href="form.html" class="back-btn">Kembali ke Form</a>
+        </div>
+    </div>
+
+    <script>
+        // function buat ambil parameter dari URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // function buat ambil semua checkbox values (karena bisa pilih banyak topping)
+        function getQueryParamArray(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.getAll(param);
+        }
+
+        // ambil data dari URL
+        const customername = getQueryParam('customername') || 'Tidak ada data';
+        const address = getQueryParam('address') || 'Tidak ada data';
+        const telephone = getQueryParam('telephone') || 'Tidak ada data';
+        const email = getQueryParam('email') || 'Tidak ada data';
+        const instruction = getQueryParam('instruction') || 'Tidak ada data';
+        const crust = getQueryParam('crust') || 'Tidak ada data';
+        const toppings = getQueryParamArray('toppings');
+        const pizzas = getQueryParam('pizzas') || 'Tidak ada data';
+
+        // tampilkan data di halaman
+        document.getElementById('display-customername').textContent = customername;
+        document.getElementById('display-address').textContent = address;
+        document.getElementById('display-telephone').textContent = telephone;
+        document.getElementById('display-email').textContent = email;
+        document.getElementById('display-instruction').textContent = instruction;
+        document.getElementById('display-crust').textContent = crust;
+        // kalo ada topping, gabungin pake koma, kalo ga ada tulis "Tidak ada data"
+        document.getElementById('display-toppings').textContent = toppings.length > 0 ? toppings.join(', ') : 'Tidak ada data';
+        document.getElementById('display-pizzas').textContent = pizzas;
+    </script>
+</body>
+</html>

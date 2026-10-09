@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hilmi NF Pizza | Pizza-on-Demand</title>
+    <!-- taro link Google Fonts Poppins biar fontnya cakep -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- taro link CSS form buat styling -->
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <!-- header pizza brand -->
+    <h1>Hilmi NF Pizza | Pizza-on-Demand</h1>
+    <!-- intro text buat ngasih tau customer tentang toko -->
+    <p class="intro-text">
+        Selamat datang di Hilmi NF Pizza, tempat terbaik untuk memesan pizza sesuai keinginan Anda! Silakan isi formulir di bawah ini untuk membuat pesanan pizza impian Anda.
+    </p>
+
+    <!-- form pesanan pizza, action ke sukses.html pake method get -->
+    <form action="sukses.html" method="get">
+        <!-- fieldset buat info customer -->
+        <fieldset>
+            <legend>Your Information</legend>
+
+            <!-- input nama customer, required artinya wajib diisi -->
+            <p>
+                <label for="customername">Name:</label>
+                <input type="text" id="customername" name="customername" required>
+            </p>
+
+            <!-- input alamat customer -->
+            <p>
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address">
+            </p>
+
+            <!-- input nomor telepon, required artinya wajib diisi -->
+            <p>
+                <label for="telephone">Phone:</label>
+                <input type="text" id="telephone" name="telephone" required>
+            </p>
+
+            <!-- input email customer -->
+            <p>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+            </p>
+
+            <!-- textarea buat instruction delivery, required artinya wajib diisi -->
+            <p>
+                <label for="instruction">Delivery Instruction:</label><br>
+                <textarea id="instruction" name="instruction" rows="4" cols="50" maxlength="400" placeholder="no more than 400 characters." required></textarea>
+            </p>
+        </fieldset>
+
+        <!-- fieldset buat desain pizza -->
+        <fieldset>
+            <legend>Design your dream pizza</legend>
+
+            <!-- judul section pizza specs -->
+            <p class="section-title">Pizza Specs</p>
+            <!-- subtitle kasih tau pilih 1 aja -->
+            <p class="section-subtitle">Pilih 1:</p>
+
+            <!-- radio button buat pilih crust, name sama biar bisa pilih 1 aja -->
+            <p>
+                <input type="radio" id="classic" name="crust" value="classic white" required>
+                <label for="classic">Classic White</label><br>
+
+                <input type="radio" id="thin" name="crust" value="thin crust" required>
+                <label for="thin">Thin Crust</label><br>
+
+                <input type="radio" id="deep" name="crust" value="deep dish" required>
+                <label for="deep">Deep Dish</label><br>
+
+                <input type="radio" id="gluten" name="crust" value="gluten free" required>
+                <label for="gluten">Gluten Free</label><br>
+            </p>
+
+            <!-- judul section toppings -->
+            <p class="section-title">Toppings</p>
+
+            <!-- checkbox buat topping, name sama biar bisa pilih lebih dari 1 -->
+            <p>
+                <input type="checkbox" id="pepperoni" name="toppings1" value="pepperoni">
+                <label for="pepperoni">Pepperoni</label><br>
+
+                <input type="checkbox" id="mushroom" name="toppings2" value="mushroom">
+                <label for="mushroom">Mushroom</label><br>
+
+                <input type="checkbox" id="onion" name="toppings3" value="onion">
+                <label for="onion">Onion</label><br>
+
+                <input type="checkbox" id="sausage" name="toppings4" value="sausage">
+                <label for="sausage">Sausage</label><br>
+
+                <input type="checkbox" id="bacon" name="toppings5" value="bacon">
+                <label for="bacon">Bacon</label><br>
+
+                <input type="checkbox" id="extraCheese" name="toppings6" value="extra cheese">
+                <label for="extraCheese">Extra Cheese</label><br>
+
+                <input type="checkbox" id="greenPeppers" name="toppings" value="green peppers">
+                <label for="greenPeppers">Green Peppers</label><br>
+            </p>
+
+            <!-- input quantity pizza, min 1 max 10 -->
+            <p>
+                <label for="pizzas">Quantity:</label>
+                <input type="number" id="pizzas" name="pizzas" min="1" max="10" value="1">
+            </p>
+        </fieldset>
+
+        <!-- tombol submit sama reset -->
+        <p class="button-group">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </p>
+    </form>
+</body>
+</html>

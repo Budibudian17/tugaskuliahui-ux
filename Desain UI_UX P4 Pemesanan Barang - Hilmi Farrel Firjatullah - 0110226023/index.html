@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#4a90e2" />
+    <title>Pemesanan Barang | Kelompok 8 UI/UX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="top-widget" id="top" aria-label="Menu halaman">
+        <a class="nav-link active" href="#top">Home</a>
+        <a class="nav-link" href="#generate-link">Generate Link</a>
+        <a class="nav-link" href="#transaction-history">Transaction History</a>
+        <a class="nav-link" href="#policy">Policy</a>
+        <a class="nav-link logout-link" href="../index.html">Logout</a>
+    </div>
+
+    <main class="page-content">
+
+      <form class="order-form" method="post">
+        <section class="product-section" aria-label="Informasi barang">
+          <div class="product-photo-column">
+            <div class="product-photo" id="photo-preview">
+              <span class="photo-placeholder" aria-hidden="true">
+                <svg viewBox="0 0 48 48" focusable="false">
+                  <rect x="7" y="9" width="34" height="30" rx="3"></rect>
+                  <circle cx="18" cy="19" r="3"></circle>
+                  <path d="m9 34 10-10 7 7 5-5 8 8"></path>
+                </svg>
+                <span>Foto barang</span>
+              </span>
+              <img
+                class="preview-image"
+                alt="Pratinjau foto barang"
+                hidden
+              />
+            </div>
+            <label class="upload-button" for="product-image">
+              <svg viewBox="0 0 20 20" aria-hidden="true">
+                <path d="M10 13V3m0 0L6.5 6.5M10 3l3.5 3.5M4 12v4h12v-4"></path>
+              </svg>
+              Upload picture
+            </label>
+            <input
+              class="visually-hidden"
+              type="file"
+              id="product-image"
+              name="product-image"
+              accept="image/*"
+            />
+            <p class="upload-hint">PNG atau JPG, maksimal 5 MB</p>
+          </div>
+
+          <div class="form-fields">
+            <div class="field-row">
+              <label for="title"
+                >Title Here <span class="required-mark">*</span></label
+              >
+              <input
+                type="text"
+                id="title"
+                name="title"
+                placeholder="MacBook Air E800"
+                required
+              />
+            </div>
+            <div class="field-row description-row">
+              <label for="description">Description</label>
+              <textarea
+                id="description"
+                name="description"
+                rows="3"
+                placeholder="Tahun 2009&#10;Model: MacBook Air&#10;Kondisi: Mint"
+              ></textarea
+              >
+            </div>
+            <div class="field-row">
+              <label for="account-number"
+                >Account Number <span class="required-mark">*</span></label
+              >
+              <input
+                type="text"
+                id="account-number"
+                name="account-number"
+                inputmode="numeric"
+                placeholder="123-456-789-0"
+                required
+              />
+            </div>
+            <div class="field-row">
+              <label for="bank"
+                >Bank <span class="required-mark">*</span></label
+              >
+              <select id="bank" name="bank" required>
+                <option value="" disabled selected>Pilih bank</option>
+                <option value="BCA">BCA</option>
+                <option value="HSBC">HSBC</option>
+                <option value="Mandiri">Mandiri</option>
+                <option value="BNI">BNI</option>
+                <option value="BRI">BRI</option>
+              </select>
+            </div>
+            <div class="field-row">
+              <label for="account-holder"
+                >Account Holder <span class="required-mark">*</span></label
+              >
+              <input
+                type="text"
+                id="account-holder"
+                name="account-holder"
+                placeholder="Nama Pemilik"
+                required
+              />
+            </div>
+            <div class="field-row transaction-row">
+              <label for="transaction-count">Transaction</label>
+              <div class="transaction-control">
+                <input
+                  type="number"
+                  id="transaction-count"
+                  name="transaction-count"
+                  min="1"
+                  max="3"
+                  placeholder="1"
+                  aria-describedby="transaction-help"
+                />
+                <span class="field-hint" id="transaction-help"
+                  >Jika transaksi untuk 3 orang, pilih 3 penerima.</span
+                >
+              </div>
+            </div>
+            <fieldset class="delivery-options">
+              <legend class="visually-hidden">Cara mengirim link</legend>
+              <label class="check-option">
+                <input
+                  type="checkbox"
+                  id="send-mobile"
+                  name="send-mobile"
+                />
+                <span class="custom-check" aria-hidden="true"></span>
+                Send to Mobile Phone
+              </label>
+              <label class="check-option">
+                <input
+                  type="checkbox"
+                  id="send-email"
+                  name="send-email"
+                />
+                <span class="custom-check" aria-hidden="true"></span>
+                Send to Email
+              </label>
+            </fieldset>
+            <div class="field-row recipient-row" id="mobile-row">
+              <label for="mobile-numbers">Send to Mobile Phone</label>
+              <input
+                type="tel"
+                id="mobile-numbers"
+                name="mobile-numbers"
+                placeholder="081234567890, 081234567891"
+              />
+            </div>
+            <div class="field-row recipient-row" id="email-row">
+              <label for="email-addresses">Send to Email</label>
+              <input
+                type="text"
+                id="email-addresses"
+                name="email-addresses"
+                placeholder="nama@email.com, nama2@email.com"
+              />
+            </div>
+          </div>
+        </section>
+
+        <div class="form-footer" id="generate-link">
+          <p class="form-note">
+            <span class="required-mark">*</span> Wajib diisi untuk membuat link
+            transaksi.
+          </p>
+          <button class="primary-button" type="submit">
+            Generate Nabr Link
+            <svg viewBox="0 0 20 20" aria-hidden="true">
+              <path d="M4 10h12m-5-5 5 5-5 5"></path>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </main>
+
+  </body>
+</html>

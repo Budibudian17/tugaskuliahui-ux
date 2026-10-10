@@ -24,7 +24,11 @@
 
     <main class="page-content">
 
-      <form class="order-form" method="post">
+      <form
+        class="order-form"
+        method="post"
+        enctype="multipart/form-data"
+      >
         <section class="product-section" aria-label="Informasi barang">
           <div class="product-photo-column">
             <div class="product-photo" id="photo-preview">
@@ -53,9 +57,9 @@
               type="file"
               id="product-image"
               name="product-image"
-              accept="image/*"
+              accept="image/png, image/jpeg"
             />
-            <p class="upload-hint">Use PNG / JPG, Maximum is 5MB</p>
+            <p class="upload-hint">Pilih gambar PNG atau JPG.</p>
           </div>
 
           <div class="form-fields">

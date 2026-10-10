@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#4a90e2" />
+    <title>Hasil Pemesanan | Hilmi Farrel Firjatullah</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .result-card {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 30px;
+        border: 1px solid #e1e7ee;
+        border-radius: 9px;
+        background: #fff;
+        box-shadow: 0 8px 24px rgba(38, 54, 72, 0.06);
+      }
+
+      .result-heading {
+        margin: 0 0 8px;
+        color: #357abd;
+        font-size: 26px;
+        text-align: center;
+      }
+
+      .result-intro {
+        margin: 0 0 24px;
+        color: #748092;
+        font-size: 14px;
+        line-height: 1.7;
+        text-align: center;
+      }
+
+      .result-section {
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 1px solid #e1e7ee;
+        border-radius: 7px;
+      }
+
+      .result-section h2 {
+        margin: 0 0 14px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #4a90e2;
+        color: #357abd;
+        font-size: 17px;
+      }
+
+      .info-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 10px;
+        padding: 11px;
+        border-radius: 5px;
+        background: #f7f9fc;
+        font-size: 13px;
+      }
+
+      .info-item:last-child {
+        margin-bottom: 0;
+      }
+
+      .info-label {
+        flex: 0 0 190px;
+        color: #344255;
+        font-weight: 600;
+      }
+
+      .info-value {
+        overflow-wrap: anywhere;
+        color: #65758a;
+      }
+
+      .back-link {
+        display: block;
+        width: fit-content;
+        margin: 24px auto 0;
+        padding: 11px 20px;
+        border-radius: 5px;
+        background: #4a90e2;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 500;
+        text-decoration: none;
+      }
+
+      .back-link:hover {
+        background: #357abd;
+      }
+
+      @media (max-width: 520px) {
+        .result-card {
+          padding: 20px;
+        }
+
+        .info-item {
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .info-label {
+          flex-basis: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ringkasan pesanan dengan kelompok field seperti halaman hasil Pizza -->
+    <main class="page-content">
+      <section class="result-card" aria-labelledby="result-heading">
+        <h1 class="result-heading" id="result-heading">Pesanan Berhasil!</h1>
+        <p class="result-intro">
+          Berikut ringkasan data pemesanan yang kamu kirim.
+        </p>
+
+        <!-- ringkasan informasi barang -->
+        <section class="result-section" aria-labelledby="product-heading">
+          <h2 id="product-heading">Informasi Barang</h2>
+          <div class="info-item">
+            <span class="info-label">Foto barang:</span>
+            <span class="info-value">Tidak ada gambar</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Judul barang:</span>
+            <span class="info-value" id="display-title">-</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Deskripsi:</span>
+            <span class="info-value" id="display-description">-</span>
+          </div>
+        </section>
+
+        <!-- ringkasan informasi rekening -->
+        <section class="result-section" aria-labelledby="payment-heading">
+          <h2 id="payment-heading">Informasi Pembayaran</h2>
+          <div class="info-item">
+            <span class="info-label">Nomor rekening:</span>
+            <span class="info-value" id="display-account-number">-</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Bank:</span>
+            <span class="info-value" id="display-bank">-</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Nama pemilik rekening:</span>
+            <span class="info-value" id="display-account-holder">-</span>
+          </div>
+        </section>
+
+        <!-- ringkasan transaksi dan tujuan pengiriman link -->
+        <section class="result-section" aria-labelledby="delivery-heading">
+          <h2 id="delivery-heading">Pengiriman Link</h2>
+          <div class="info-item">
+            <span class="info-label">Jumlah transaksi:</span>
+            <span class="info-value" id="display-transaction-count">-</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Nomor HP penerima:</span>
+            <span class="info-value" id="display-mobile">-</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Email penerima:</span>
+            <span class="info-value" id="display-email">-</span>
+          </div>
+        </section>
+
+        <!-- tombol untuk kembali ke halaman form -->
+        <a class="back-link" href="index.html">Kembali ke Form</a>
+      </section>
+    </main>
+    <script>
+      // ambil nilai field dari parameter URL seperti pada halaman hasil Pizza
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+
+      // tampilkan nilai field, atau keterangan jika field tidak diisi
+      const title = getQueryParam("title") || "Tidak ada data";
+      const description = getQueryParam("description") || "Tidak ada data";
+      const accountNumber = getQueryParam("account-number") || "Tidak ada data";
+      const bank = getQueryParam("bank") || "Tidak ada data";
+      const accountHolder = getQueryParam("account-holder") || "Tidak ada data";
+      const transactionCount = getQueryParam("transaction-count") || "Tidak ada data";
+
+      document.getElementById("display-title").textContent = title;
+      document.getElementById("display-description").textContent = description;
+      document.getElementById("display-account-number").textContent = accountNumber;
+      document.getElementById("display-bank").textContent = bank;
+      document.getElementById("display-account-holder").textContent = accountHolder;
+      document.getElementById("display-transaction-count").textContent = transactionCount;
+
+      // tampilkan nomor dan email hanya jika opsi pengiriman dipilih dan nilainya tersedia
+      const mobile = getQueryParam("mobile-numbers");
+      const email = getQueryParam("email-addresses");
+      document.getElementById("display-mobile").textContent =
+        getQueryParam("send-mobile") && mobile ? mobile : "Tidak dipilih";
+      document.getElementById("display-email").textContent =
+        getQueryParam("send-email") && email ? email : "Tidak dipilih";
+    </script>
+  </body>
+</html>

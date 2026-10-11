@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
@@ -16,21 +16,16 @@
   <body>
     <!-- menu navigasi halaman -->
     <div class="top-widget" id="top" aria-label="Menu halaman">
-        <a class="nav-link active" href="#top">Home</a>
-        <a class="nav-link" href="#generate-link">Generate Link</a>
-        <a class="nav-link" href="#transaction-history">Transaction History</a>
-        <a class="nav-link" href="#policy">Policy</a>
-        <a class="nav-link logout-link" href="../index.html">Logout</a>
+      <a class="nav-link active" href="#top">Home</a>
+      <a class="nav-link" href="#generate-link">Generate Link</a>
+      <a class="nav-link" href="#transaction-history">Transaction History</a>
+      <a class="nav-link" href="#policy">Policy</a>
+      <a class="nav-link logout-link" href="../index.html">Logout</a>
     </div>
 
     <main class="page-content">
-
       <!-- form barang, datanya dikirim ke halaman hasil menggunakan GET -->
-      <form
-        class="order-form"
-        action="success.html"
-        method="get"
-      >
+      <form class="order-form" action="success.html" method="get">
         <!-- bagian foto dan informasi barang -->
         <section class="product-section" aria-label="Informasi barang">
           <div class="product-photo-column">
@@ -91,9 +86,8 @@
                 Model: ROG Zephyrus duo 16
                 Kondisi: Bagus, mulus, tidak ada cacat
                 Harga: Rp 50.000.000"
-              ></textarea
-              >
-            </div>  
+              ></textarea>
+            </div>
             <!-- informasi rekening untuk menerima pembayaran -->
             <div class="field-row">
               <label for="account-number"
@@ -165,20 +159,12 @@
             <fieldset class="delivery-options">
               <legend class="visually-hidden">Cara mengirim link</legend>
               <label class="check-option">
-                <input
-                  type="checkbox"
-                  id="send-mobile"
-                  name="send-mobile"
-                />
+                <input type="checkbox" id="send-mobile" name="send-mobile" />
                 <span class="custom-check" aria-hidden="true"></span>
                 Send to Mobile Phone
               </label>
               <label class="check-option">
-                <input
-                  type="checkbox"
-                  id="send-email"
-                  name="send-email"
-                />
+                <input type="checkbox" id="send-email" name="send-email" />
                 <span class="custom-check" aria-hidden="true"></span>
                 Send to Email
               </label>
@@ -227,6 +213,5 @@
         </div>
       </form>
     </main>
-
   </body>
 </html>

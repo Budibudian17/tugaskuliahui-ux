@@ -72,8 +72,10 @@
                 id="title"
                 name="title"
                 placeholder="ROG Zephyrus duo 16"
+                pattern=".*\S.*"
                 minlength="2"
                 maxlength="100"
+                title="Judul barang harus berisi minimal satu karakter selain spasi."
                 required
               />
             </div>
@@ -131,9 +133,12 @@
                 type="text"
                 id="account-holder"
                 name="account-holder"
+                autocomplete="name"
                 placeholder="Nama Pemilik Akun"
+                pattern=".*\S.*"
                 minlength="2"
                 maxlength="60"
+                title="Nama pemilik rekening harus berisi minimal satu karakter selain spasi."
                 required
               />
             </div>
@@ -184,6 +189,8 @@
                 type="tel"
                 id="mobile-numbers"
                 name="mobile-numbers"
+                inputmode="tel"
+                autocomplete="tel"
                 placeholder="081234567890"
                 pattern="(\+62|0)8[1-9][0-9]{6,10}"
                 title="Masukkan nomor HP Indonesia yang diawali 08 atau +62, tanpa spasi atau tanda hubung."
@@ -195,9 +202,11 @@
                 type="email"
                 id="email-addresses"
                 name="email-addresses"
+                autocomplete="email"
                 placeholder="nama@gmail.com"
                 multiple
                 maxlength="254"
+                title="Masukkan alamat email yang valid, misalnya nama@gmail.com. Pisahkan beberapa alamat dengan koma."
               />
             </div>
           </div>

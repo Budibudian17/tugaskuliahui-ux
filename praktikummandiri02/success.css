@@ -38,6 +38,36 @@
   font-size: 17px;
 }
 
+.product-result-layout {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  align-items: start;
+  gap: 24px;
+}
+
+.product-result-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.product-result-photo {
+  margin: 0;
+}
+
+.product-result-photo figcaption {
+  margin-bottom: 8px;
+  color: #344255;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.product-result-details p + p {
+  margin-top: 12px;
+}
+
 .result-section p {
   margin: 0 0 12px;
   color: #65758a;
@@ -74,5 +104,13 @@
 @media (max-width: 520px) {
   .result-card {
     padding: 20px;
+  }
+
+  .product-result-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .product-result-image {
+    max-width: 230px;
   }
 }
